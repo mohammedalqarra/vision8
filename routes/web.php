@@ -9,6 +9,7 @@ use App\Http\Controllers\FormsController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\Site3Controller;
+use App\Http\Controllers\Site4Controller;
 
 // Route::get('url' , 'Action');
 // Route::post('url' , 'Action');
@@ -133,6 +134,14 @@ Route::prefix('Site3')->name('Site3.')->group(function () {
     Route::get('/skills', [Site3Controller::class, 'skills'])->name('skills');
     Route::get('/interests', [Site3Controller::class, 'interests'])->name('interests');
     Route::get('/awards', [Site3Controller::class, 'awards'])->name('awards');
+});
+
+Route::prefix('Site4')->name('Site4.')->group(function () {
+    Route::get('/', [Site4Controller::class, 'index'])->name('index');
+    Route::get('/portfolio', [Site4Controller::class, 'portfolio'])->name('portfolio');
+    Route::get('/about', [Site4Controller::class, 'about'])->name('about');
+    Route::get('/team', [Site4Controller::class, 'team'])->name('team');
+    Route::get('/contact', [Site4Controller::class, 'contact'])->name('contact');
 });
 
 Route::get('form1', [FormsController::class, 'form1'])->name('form1');
