@@ -32,4 +32,23 @@ class Site4Controller extends Controller
     {
         return view('Site4.contact');
     }
+
+    public function Contact_data(Request $request)
+    {
+        // a;ot of code
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'number' => 'required',
+            'textarea' => 'required',
+        ]);
+
+        $name = $request->name;
+        $email = $request->email;
+        $number = $request->number;
+        $textarea = $request->textarea;
+
+        return view('Site4.contact_data', compact('name', 'email', 'number', 'textarea'));
+        dd($request->all());
+    }
 }

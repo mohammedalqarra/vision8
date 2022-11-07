@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\CheckWordCount;
 
 class FormsController extends Controller
 {
@@ -71,6 +72,54 @@ class FormsController extends Controller
         $name = $request->name;
         $Email = $request->Email;
         return view('forms.form3_data', compact('name', 'Email'));
+        dd($request->all());
+    }
+
+    public function form4()
+    {
+        return view('forms.form4');
+    }
+
+
+    public function form4_data(Request $request)
+    {
+
+        $request->validate([
+            // 'name' => 'required | min:3 | max:20',
+            // 'name' => ['required', 'min:3', 'max:20'],
+            // 'name' => ['required', new CheckWordCount(5)],
+            'name' => ['required', new CheckWordCount(3, 'is the length of the name')],
+            'email' => 'required | email | ends_with:gmail.com',
+            'password' => 'required|confirmed|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
+            // 'password' => ['required', 'string', 'max:255', 'min:8', 'confirmed', 'regex:/[0-9]/', 'regex:/[a-z]/', 'regex:/[A-Z]/'],
+            'bio' => ['required', new CheckWordCount(100, 'The validation error message.')],
+        ]);
+
+        dd($request->all());
+    }
+    public function form5()
+    {
+        // $alpha = range('a', 'z');
+        // dd($alpha);
+        // dd($alpha[rand(0, 25)]);
+        return view('forms.form5');
+    }
+
+
+    public function form5_data(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'cv' => 'required',
+        ]);
+        $alpha = range('a', 'z');
+        // $img_name = $request->file('cv')->getClientOriginalName();
+        $ex = $request->file('cv')->getClientOriginalExtension();
+        $img_name = rand() . time() . '_'  . $alpha[rand(0, count($alpha) - 1)] . rand() . '.' . $ex;
+        // nameimg => randimg().extension;
+        //لو أرتفع أنقله على ال public ولو الملف مش موجود بنشأه
+        $request->file('cv')->move(public_path('uploads'), $img_name);
+
         dd($request->all());
     }
 }

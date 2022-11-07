@@ -11,6 +11,7 @@ use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\Site3Controller;
 use App\Http\Controllers\Site4Controller;
 
+
 // Route::get('url' , 'Action');
 // Route::post('url' , 'Action');
 // Route::patch('url' , 'Action');
@@ -136,13 +137,6 @@ Route::prefix('Site3')->name('Site3.')->group(function () {
     Route::get('/awards', [Site3Controller::class, 'awards'])->name('awards');
 });
 
-Route::prefix('Site4')->name('Site4.')->group(function () {
-    Route::get('/', [Site4Controller::class, 'index'])->name('index');
-    Route::get('/portfolio', [Site4Controller::class, 'portfolio'])->name('portfolio');
-    Route::get('/about', [Site4Controller::class, 'about'])->name('about');
-    Route::get('/team', [Site4Controller::class, 'team'])->name('team');
-    Route::get('/contact', [Site4Controller::class, 'contact'])->name('contact');
-});
 
 Route::get('form1', [FormsController::class, 'form1'])->name('form1');
 Route::post('form1', [FormsController::class, 'form1_data'])->name('form1_data');
@@ -152,3 +146,21 @@ Route::post('form2', [FormsController::class, 'form2_data'])->name('form2_data')
 
 Route::get('form3', [FormsController::class, 'form3'])->name('form3');
 Route::post('form3', [FormsController::class, 'form3_data'])->name('form3_data');
+
+
+Route::get('form4', [FormsController::class, 'form4'])->name('form4');
+Route::post('form4', [FormsController::class, 'form4_data'])->name('form4_data');
+
+Route::get('form5', [FormsController::class, 'form5'])->name('form5');
+Route::post('form5', [FormsController::class, 'form5_data'])->name('form5_data');
+
+
+Route::prefix('Site4')->name('Site4.')->group(function () {
+    Route::get('/', [Site4Controller::class, 'index'])->name('index');
+    Route::get('/portfolio', [Site4Controller::class, 'portfolio'])->name('portfolio');
+    Route::get('/about', [Site4Controller::class, 'about'])->name('about');
+    Route::get('/team', [Site4Controller::class, 'team'])->name('team');
+    Route::get('/contact', [Site4Controller::class, 'contact'])->name('contact');
+});
+
+Route::post('Site4', [Site4Controller::class, 'Contact_data'])->name('Contact_data');

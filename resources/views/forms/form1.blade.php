@@ -13,6 +13,7 @@
 </head>
 
 <body>
+
     <div class="container mt-5">
         <h1>Basic Form</h1>
         <form method="post" action="{{ route('form1_data') }}">

@@ -83,8 +83,8 @@
                                 <div class="portfolio-item-caption-content text-center text-white"><i
                                         class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="{{ asset('assets/img/portfolio/' . $Portfolio['image']) }}"
-                                alt="..." />
+                            <img class="img-fluid" loading="lazy"
+                                src="{{ asset('assets/img/portfolio/' . $Portfolio['image']) }}" alt="..." />
                         </div>
                         <!-- Portfolio Modals-->
                         <!-- Portfolio Modal 1-->
@@ -110,7 +110,7 @@
                                                         <div class="divider-custom-line"></div>
                                                     </div>
                                                     <!-- Portfolio Modal - Image-->
-                                                    <img class="img-fluid rounded mb-5"
+                                                    <img class="img-fluid rounded mb-5" loading="lazy"
                                                         src="{{ asset('assets/img/portfolio/cabin.png') }}"
                                                         alt="..." />
                                                     <!-- Portfolio Modal - Text-->

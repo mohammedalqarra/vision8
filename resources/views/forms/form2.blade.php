@@ -13,15 +13,8 @@
 <body>
     <div class="container mt-5">
         <h1>information Form</h1>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li><br>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('forms.errors')
+
         <form method="post" action="{{ route('form2_data') }}">
             {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             {{-- {{ csrf_field() }} --}}

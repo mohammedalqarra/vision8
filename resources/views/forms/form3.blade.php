@@ -19,17 +19,8 @@
         @if ($errors->any())
             <p>There is an errors in form</p>
         @endif --}}
+        @include('forms.errors')
 
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li><br>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <form method="post" action="{{ route('form3_data') }}">
             {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
             {{ csrf_field() }}
