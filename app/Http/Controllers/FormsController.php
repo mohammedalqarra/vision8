@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rules\CheckWordCount;
+use App\Rules\CheckWordCounts;
 
 class FormsController extends Controller
 {
@@ -119,6 +120,33 @@ class FormsController extends Controller
         // nameimg => randimg().extension;
         //لو أرتفع أنقله على ال public ولو الملف مش موجود بنشأه
         $request->file('cv')->move(public_path('uploads'), $img_name);
+
+        dd($request->all());
+    }
+
+    public function form6()
+    {
+        //      $alpha = range('a', 'z');
+        // dd($alpha);
+
+        // // dd($alpha[rand(0, 25)]);
+        return view('forms.form6');
+    }
+
+    public function form6_data(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', new CheckWordCounts(4, 'is the name length just 4 word ')],
+            'email' => 'required | email | ends_with:gmail.com',
+            // 'password' => 'required | confirmed | min:6 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
+            'password' => 'required | confirmed | min:6 ',
+            'bio' => ['required ', new CheckWordCounts(100, 'The validation error message is the length of the textarea.')],
+            'cv' => 'required',
+        ]);
+
+        //    $request->file('cv')->move(public_path('uploads'));
+        $img_names = $request->file('cv')->getClientOriginalName();
+        $request->file('cv')->move(public_path('uploads'), $img_names);
 
         dd($request->all());
     }

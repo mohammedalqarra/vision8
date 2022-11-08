@@ -2,6 +2,7 @@
 
 // use SiteControllers;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -155,6 +156,10 @@ Route::get('form5', [FormsController::class, 'form5'])->name('form5');
 Route::post('form5', [FormsController::class, 'form5_data'])->name('form5_data');
 
 
+Route::get('form6', [FormsController::class, 'form6'])->name('form6');
+Route::post('form6', [FormsController::class, 'form6_data'])->name('form6_data');
+
+
 Route::prefix('Site4')->name('Site4.')->group(function () {
     Route::get('/', [Site4Controller::class, 'index'])->name('index');
     Route::get('/portfolio', [Site4Controller::class, 'portfolio'])->name('portfolio');
@@ -164,3 +169,11 @@ Route::prefix('Site4')->name('Site4.')->group(function () {
 });
 
 Route::post('Site4', [Site4Controller::class, 'Contact_data'])->name('Contact_data');
+
+
+Route::get('send-mail', [MailController::class, 'send'])->name('send');
+
+
+
+Route::get('contact_us', [MailController::class, 'contact_us']);
+Route::post('contact_us', [MailController::class, 'contact_us_data'])->name('contact_us');
