@@ -13,9 +13,9 @@ class ContactUSMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    //  public $data;
     //لو بدي أعملها protected لازم أمررها يدوي في content
-    //  protected $data;
+    protected $data;
     /**
      * Create a new message instance.
      *
