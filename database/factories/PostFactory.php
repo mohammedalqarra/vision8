@@ -17,7 +17,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            // php faker
+            // php faker بيانات وهمية
             'title' => fake()->word(4, true),
             'content' => fake()->text(),
             'image' => fake()->imageUrl(),

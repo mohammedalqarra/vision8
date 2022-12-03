@@ -91,7 +91,8 @@ class FormsController extends Controller
             // 'name' => ['required', new CheckWordCount(5)],
             'name' => ['required', new CheckWordCount(3, 'is the length of the name')],
             'email' => 'required | email | ends_with:gmail.com',
-            'password' => 'required|confirmed|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
+            'password' => 'required|confirmed|min:6',
+            // 'password' => 'required|confirmed|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%]).*$/',
             // 'password' => ['required', 'string', 'max:255', 'min:8', 'confirmed', 'regex:/[0-9]/', 'regex:/[a-z]/', 'regex:/[A-Z]/'],
             'bio' => ['required', new CheckWordCount(100, 'The validation error message.')],
         ]);

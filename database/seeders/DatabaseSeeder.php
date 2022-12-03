@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         post::truncate(); // أحذف كل حاجة ومن ثم ضيف
+        Tag::truncate(); //
         post::factory(100)->create();
         Tag::factory(100)->create();
         // \App\Models\User::factory()->create([

@@ -3,6 +3,7 @@
 // use SiteControllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
@@ -177,3 +178,6 @@ Route::get('send-mail', [MailController::class, 'send'])->name('send');
 
 Route::get('contact_us', [MailController::class, 'contact_us']);
 Route::post('contact_us', [MailController::class, 'contact_us_data'])->name('contact_us');
+
+
+Route::get('Posts', [PostController::class, 'index'])->name('Posts.index');
