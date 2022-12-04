@@ -14,7 +14,15 @@ class PostController extends Controller
         // $Posts = mysqli_query($conn , $Posts);
         // $Posts = mysqli_fetch_array($Posts);
 
-        $posts = post::all();
+        // $posts = post::all();
+        // $posts = post::simplePaginate();
+        // $posts = post::paginate(10);
+
+        if (request()->has('q')) {
+            $posts = post::where('title', 'like', '%' . request()->q . '%')->paginate(10);
+        } else {
+            $posts = post::paginate(10);
+        }
 
         // dd($posts);
 
