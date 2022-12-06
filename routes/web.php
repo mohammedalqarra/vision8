@@ -181,3 +181,5 @@ Route::post('contact_us', [MailController::class, 'contact_us_data'])->name('con
 
 
 Route::get('Posts', [PostController::class, 'index'])->name('Posts.index');
+
+Route::get('Posts/{id}', [PostController::class, 'show'])->name('Posts.show');

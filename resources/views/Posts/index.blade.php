@@ -45,6 +45,8 @@
                     <th>{{ $post->created_at->format('M d , Y') }}</th>
                     <th>{{ $post->updated_at->diffForHumans() }}</th>
                     <th>
+                        <a href="{{ route('Posts.show', $post->id) }}" class="btn btn-sm btn-success"><i
+                                class="fas fa-eye"></i></a>
                         <a href="" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                         <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                     </th>
@@ -52,7 +54,7 @@
             @endforeach
         </table>
         {{-- {{ $posts->appends(['q' => request()->q])->links() }} --}}
-                {{ $posts->appends($_GET)->links() }}
+        {{ $posts->appends($_GET)->links() }}
 
     </div>
 </body>
