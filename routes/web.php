@@ -13,6 +13,12 @@ use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\Site3Controller;
 use App\Http\Controllers\Site4Controller;
 
+// لو الدالة مش static كيف يتم الوصول إليها
+/*
+$route  = new Route();
+$route->get();
+*/
+
 
 // Route::get('url' , 'Action');
 // Route::post('url' , 'Action');
@@ -180,6 +186,23 @@ Route::get('contact_us', [MailController::class, 'contact_us']);
 Route::post('contact_us', [MailController::class, 'contact_us_data'])->name('contact_us');
 
 
-Route::get('Posts', [PostController::class, 'index'])->name('Posts.index');
+Route::get('Posts/trash', [PostController::class, 'trash'])->name('Posts.trash');
 
+Route::get('Posts/{id}/restore', [PostController::class, 'restore'])->name('Posts.restore');
+
+Route::get('Posts/{id}/forcedelete', [PostController::class, 'forcedelete'])->name('Posts.forcedelete');
+
+Route::get('Posts/restore_all', [PostController::class, 'restore_all'])->name('Posts.restore_all');
+Route::get('Posts/delete_all', [PostController::class, 'delete_all'])->name('Posts.delete_all');
+
+Route::get('Posts/create', [PostController::class, 'create'])->name('Posts.create');
+Route::post('Posts/store', [PostController::class, 'store'])->name('Posts.store');
+
+Route::get('Posts', [PostController::class, 'index'])->name('Posts.index');
 Route::get('Posts/{id}', [PostController::class, 'show'])->name('Posts.show');
+Route::delete('Posts/{id}', [PostController::class, 'destroy'])->name('Posts.destroy');
+
+Route::get('Posts/{id}/edit', [PostController::class, 'edit'])->name('Posts.edit');
+Route::put('Posts/{id}/update', [PostController::class, 'update'])->name('Posts.update');
+
+// Route::resource('Posts', PostController::class);

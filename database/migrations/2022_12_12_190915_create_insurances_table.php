@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('_postsmm', function (Blueprint $table) {
+        Schema::create('insurances', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->String('image')->default('no-image.png');
+            $table->string('serial', 20);
+            $table->date('start');
+            $table->date('expire');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_postsmm');
+        Schema::dropIfExists('insurances');
     }
 };
