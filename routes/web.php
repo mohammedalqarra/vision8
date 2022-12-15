@@ -12,6 +12,7 @@ use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\Site2Controller;
 use App\Http\Controllers\Site3Controller;
 use App\Http\Controllers\Site4Controller;
+use App\Http\Controllers\RelationController;
 
 // لو الدالة مش static كيف يتم الوصول إليها
 /*
@@ -206,3 +207,7 @@ Route::get('Posts/{id}/edit', [PostController::class, 'edit'])->name('Posts.edit
 Route::put('Posts/{id}/update', [PostController::class, 'update'])->name('Posts.update');
 
 // Route::resource('Posts', PostController::class);
+
+//Relationship
+
+Route::get('one-to-one', [RelationController::class, 'one_to_one']);
