@@ -7,7 +7,7 @@
                 <label class="mb-3">Image</label>
                 <input type="file" name="image" class="form-control">
                 @if ($post->image)
-                <img width="80px" src="{{ asset('uploads/Posts/' . $post->image) }}" alt="">
+                    <img width="80px" src="{{ asset('uploads/Posts/' . $post->image) }}" alt="">
                 @endif
             </div>
             <div class="mb-3">

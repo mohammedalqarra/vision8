@@ -211,3 +211,5 @@ Route::put('Posts/{id}/update', [PostController::class, 'update'])->name('Posts.
 //Relationship
 
 Route::get('one-to-one', [RelationController::class, 'one_to_one']);
+
+Route::get('one-to-many', [RelationController::class, 'one_to_many']);
