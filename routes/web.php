@@ -212,4 +212,12 @@ Route::put('Posts/{id}/update', [PostController::class, 'update'])->name('Posts.
 
 Route::get('one-to-one', [RelationController::class, 'one_to_one']);
 
+Route::get('my-post/{id}', [RelationController::class, 'one_to_many'])->name('mypost');
+
 Route::get('one-to-many', [RelationController::class, 'one_to_many']);
+
+Route::post('one-to-many', [RelationController::class, 'one_to_many_data'])->name('one_to_many_data');
+
+Route::get('many-to-many', [RelationController::class, 'many_to_many']);
+
+Route::post('many-to-many', [RelationController::class, 'many_to_many_data'])->name('many_to_many_data');

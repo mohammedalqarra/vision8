@@ -12,7 +12,6 @@
         "laravel/tinker": "^2.7"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.7",
         "beyondcode/laravel-query-detector": "^1.6",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
