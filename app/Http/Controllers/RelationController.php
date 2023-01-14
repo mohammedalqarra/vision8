@@ -60,7 +60,7 @@ class RelationController extends Controller
 
     public function many_to_many()
     {
-        $std = Student::find(2);
+        $std = Student::find(1);
         $courses = Course::all();
 
         return view('relation.many_to_many',  compact('std', 'courses'));
@@ -70,7 +70,7 @@ class RelationController extends Controller
     {
         // dd($request->all());
 
-        $std = Student::find(2);
+        $std = Student::find(1);
         // $std->course()->attach($request->course_id);
         // $std->course()->detach($request->course_id);
         $std->course()->sync($request->course_id);

@@ -64,7 +64,7 @@
                     <th>
                         <a href="{{ route('Posts.show', $post->id) }}" class="btn btn-sm btn-success"><i
                                 class="fas fa-eye"></i></a>
-                        <a href="{{ route('Posts.edit' , $post->id) }}" class="btn btn-sm btn-primary"><i
+                        <a href="{{ route('Posts.edit', $post->id) }}" class="btn btn-sm btn-primary"><i
                                 class="fas fa-edit"></i></a>
                         {{-- <a href="" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a> --}}
                         <button class="btn btn-sm btn-danger btn-delete"> <i class="fas fa-trash"></i> </button>

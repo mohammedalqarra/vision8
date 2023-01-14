@@ -45,7 +45,7 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('Posts.create', compact('post')); 
+        return view('Posts.create', compact('post'));
     }
 
     // public function store(PostRequest $request)
@@ -109,7 +109,7 @@ class PostController extends Controller
             File::delete(public_path('uploads/posts/' . $img_name));
 
             $img = $request->file('image');
-            $img_name = time().rand().$img->getClientOriginalName();
+            $img_name = time() . rand() . $img->getClientOriginalName();
             $img->move(public_path('uploads/Posts'), $img_name);
         }
         //store data to database
